@@ -22,11 +22,11 @@ export class Movie{
 }
 
 export const loadMovies = async (n: number) => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=`process.env.api_key`&language=en-US&page=2${n}`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=e88943f8132d0a9c9c6f1c2354462be2&language=en-US&page=2${n}`);
     const { results } = (await response.json()) as { results: any[] };
-    const users: Array<User> = [];
+    const movies: Array<Movie> = [];
     for (const { adult, genres, homepage, original_language, original_title, overview, popularity, poster_path, production_companies, release_date, revenue, runtime, status, tagline, title, vote_average, vote_count } of results) {
-      users.push(new User(adult, genres, homepage, original_language, original_title, overview, popularity, poster_path, production_companies, release_date, revenue, runtime, status, tagline, title, vote_average, vote_count));
+      movies.push(new Movie(adult, genres, homepage, original_language, original_title, overview, popularity, poster_path, production_companies, release_date, revenue, runtime, status, tagline, title, vote_average, vote_count));
     }
-    return users;
+    return movies;
   };
