@@ -38,10 +38,10 @@ const renderMovies = (movies: Array<Movie>) => {
   let html = "";
   for (const movie of movies) {
     html += `<div class="movie">
-      <img src="${movie.poster_path}" />
+      <img src="${movie.posterPath}" />
       <div class="data">
-        <div class="name">${movie.original_title}</div>
-        <div class="genres">${movie.genres}</div>
+        <div class="name">${movie.title}</div>
+        <div class="title">${movie.release_date}</div>
       </div>
     </div>`;
   }

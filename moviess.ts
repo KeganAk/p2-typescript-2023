@@ -19,6 +19,10 @@ export class Movie{
         public vote_count: number,
 
     ) {}
+
+    get posterPath(){
+        return `https://www.themoviedb.org/t/p/w220_and_h330_face${this.poster_path}`
+    }
 }
 
 export const loadMovies = async (n: number) => {
