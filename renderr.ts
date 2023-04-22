@@ -1,35 +1,46 @@
 import { Movie } from "./moviess.js";
 
 const head = (title: string) => `
+<html>
+  
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title}</title>
+  <title>Movie List</title>
   <style>
     body {
       margin: 0;
       padding: 0;
     }
     .movie {
-      font-family: sans-serif;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
       padding: .4rem;
       border-bottom: 1px solid #ddd;
+      float: left;
+      justify-content: flex-start;
     }
     .movie img {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      margin-right: 0.7rem;
+      margin-right: 10px;
+      width: 220px;
+      height: 330px;
+    }
+    .movie .data{
+      max-width: 220px;
     }
     .movie .name {
       font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-    .movie .genres {
-      font-family: monospace;
+    .movie .title {
+      font-size: 14px;
+      color: #888;
     }
   </style>
 </head>`;
