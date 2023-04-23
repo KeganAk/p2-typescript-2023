@@ -10,6 +10,7 @@ export class Movie{
         public poster_path: string | null,
         public production_companies: [object],
         public release_date: number,
+        public id: number,
         public revenue: number,
         public runtime: number | null,
         public status: string,
@@ -29,8 +30,8 @@ export const loadMovies = async (n: number) => {
     const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=e88943f8132d0a9c9c6f1c2354462be2&language=en-US&page=${n}`);
     const { results } = (await response.json()) as { results: any[] };
     const movies: Array<Movie> = [];
-    for (const { adult, genres, homepage, original_language, original_title, overview, popularity, poster_path, production_companies, release_date, revenue, runtime, status, tagline, title, vote_average, vote_count } of results) {
-      movies.push(new Movie(adult, genres, homepage, original_language, original_title, overview, popularity, poster_path, production_companies, release_date, revenue, runtime, status, tagline, title, vote_average, vote_count));
+    for (const { adult, genres, homepage, original_language, original_title, overview, popularity, poster_path, production_companies, release_date, id, revenue, runtime, status, tagline, title, vote_average, vote_count } of results) {
+      movies.push(new Movie(adult, genres, homepage, original_language, original_title, overview, popularity, poster_path, production_companies, release_date, id, revenue, runtime, status, tagline, title, vote_average, vote_count));
     }
     return movies;
   };
