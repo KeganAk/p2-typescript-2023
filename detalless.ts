@@ -16,7 +16,7 @@ const head = () => `
     .movie {
       font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       padding: .4rem;
       border-bottom: 1px solid #ddd;
       float: left;
@@ -49,7 +49,7 @@ const renderMovies = (movies: Array<Movie>) => {
   let html = "";
   for (const movie of movies) {
     html += `
-    <a href="./movie/${movie.title}.html">
+    <a href="/detalles-de-la-peli">
     <div class="movie">
       <img src="${movie.posterPath}" />
       <div class="data">
@@ -71,16 +71,3 @@ export const render = (movies: Array<Movie>) => {
   </body>
 </html>`;
 };
-
-
-export const movieRender = (movie: Array<Movie>) => {
-  return `
-  <html>
-  <body>
-  <div>
-  <img src="${movie[0].poster_path}"/>
-  </div>
-  </body>
-  </html>
-  `
-}
