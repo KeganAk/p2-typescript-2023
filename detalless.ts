@@ -1,4 +1,4 @@
-import { Movie } from "./moviess.js";
+import { Movies } from "./moviess.js";
 
 const head = () => `
 <html>
@@ -45,13 +45,13 @@ const head = () => `
   </style>
 </head>`;
 
-const renderMovies = (movies: Array<Movie>) => {
+const renderMovies = (movies: Array<Movies>) => {
   let html = "";
   for (const movie of movies) {
     html += `
     <a href="/detalles-de-la-peli">
     <div class="movie">
-      <img src="${movie.posterPath}" />
+      <img src="https://www.themoviedb.org/t/p/w220_and_h330_face${movie.posterPath}" />
       <div class="data">
         <div class="name">${movie.title}</div>
         <div class="title">${movie.release_date}</div>
@@ -62,7 +62,7 @@ const renderMovies = (movies: Array<Movie>) => {
   return html;
 }
 
-export const render = (movies: Array<Movie>) => {
+export const render = (movies: Array<Movies>) => {
   return `
 <html>
   ${head()}
