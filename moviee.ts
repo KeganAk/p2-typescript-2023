@@ -24,11 +24,18 @@ export class Movie{
     }
 }
 
+export class Genres{
+    constructor(
+        public id: number,
+        public name: string,
+    ) {}
+}
+
   export const loadMovie = async (id: number) => {
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e88943f8132d0a9c9c6f1c2354462be2&language=en-US`);
     const result: any = await response.json();
     const movie = new Movie(
-        result.adult,    
+        result.adult,
         result.homepage,
         result.original_language,
         result.original_title,
@@ -47,4 +54,18 @@ export class Movie{
       );
     
       return movie;
+  };
+
+  export const loadGenres = async (id: number) => {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e88943f8132d0a9c9c6f1c2354462be2&language=en-US`);
+    const results: any = await response.json();
+    const genres: Array<Genres> = [];
+    for (const {id, name} of results.genres){
+        genres.push(new Genres(id, name));
+    };
+    for (const genre of genres){
+        console.log(genre.name);
+    }
+    
+    return genres;
   };
