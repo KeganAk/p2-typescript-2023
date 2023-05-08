@@ -1,6 +1,7 @@
 export class Movie{
     constructor(
         public adult: boolean,
+        public genres: Array<any>,
         public homepage: string | null,
         public original_language: string,
         public original_title: string,
@@ -36,6 +37,7 @@ export class Genres{
     const result: any = await response.json();
     const movie = new Movie(
         result.adult,
+        result.genres,
         result.homepage,
         result.original_language,
         result.original_title,

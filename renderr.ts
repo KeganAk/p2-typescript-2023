@@ -1,5 +1,6 @@
 import { Movies } from "./moviess.js";
 import { Movie } from "./moviee.js"
+import { Genres } from "./moviee.js"
 
 const head = () => `
 <html>
@@ -75,15 +76,46 @@ export const render = (movies: Array<Movies>) => {
 </html>`;
 };
 
+const renderGenres = (genres: Array<Genres>) => { // Obtener géneros
+  return genres.map((genre) => `<span class="genre">${genre.name}</span>`).join(", "); // Separar los géneros con comas
+}
 
 export const movieRender = (movie: Movie) => {
+  const genresHTML = renderGenres(movie.genres);
   return `
   <html>
   <body>
   <div>
   <img src="${movie.posterPath}"/>
   </div>
+  <div class="title"><strong>Título</strong>: ${movie.title}</div>
+  <div class="tagline"><strong>Eslogan</strong>: ${movie.tagline}</div>
+  <div class="language"><strong>Idioma original</strong>: ${movie.original_language}</div>
+  <div class="originalTitle"><strong>Título original</strong>: ${movie.original_title}</div>
+  <div class="overview"><strong>Descripcón</strong>: ${movie.overview}</div>
+  <div class="releaseDate"><strong>Fecha de estreno</strong>: ${movie.release_date}</div>
+
+  <div class="adult"><strong>Para adultos</strong>: ${movie.adult ? "Sí" : "No"}</div> 
+  <div class="homepage"><strong>Web oficial</strong>: ${movie.homepage}</div>
+  
+  <div class="popularity"><strong>Popularidad</strong>: ${movie.popularity}</div>
+  
+  <div class="revenue"><strong>Ganancias</strong>: ${movie.revenue}$</div>
+  <div class="runtime"><strong>Duración</strong>: ${movie.runtime} minutos</div>
+  <div class="status"><strong>Estado:</strong> ${movie.status}</div>
+  
+  <div class="voteAverage"><strong>Nota</strong>: ${movie.vote_average}</div>
+  <div class="voteCount"><strong>Votos</strong>: ${movie.vote_count}</div>
+
+
+
+  <div class="genres"><strong>Géneros</strong>: ${genresHTML}</div>
+  
+
+
   </body>
   </html>
   `
 }
+
+  
