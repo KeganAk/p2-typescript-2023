@@ -1,4 +1,5 @@
-import { Movie } from "./moviess.js";
+import { Movies } from "./moviess.js";
+import { Movie } from "./moviee.js"
 
 const head = () => `
 <html>
@@ -45,24 +46,26 @@ const head = () => `
   </style>
 </head>`;
 
-const renderMovies = (movies: Array<Movie>) => {
+const renderMovies = (movies: Array<Movies>) => {
   let html = "";
   for (const movie of movies) {
+    const newString = movie.title.replace(/:/g, "");
     html += `
-    <a href="./movie/${movie.title}.html">
+    
     <div class="movie">
       <img src="${movie.posterPath}" />
       <div class="data">
+      <a href="./movie/${newString}.html">
         <div class="name">${movie.title}</div>
+      </a>
         <div class="title">${movie.release_date}</div>
       </div>
-    </div>
-    </a>`;
+    </div>`;
   }
   return html;
 }
 
-export const render = (movies: Array<Movie>) => {
+export const render = (movies: Array<Movies>) => {
   return `
 <html>
   ${head()}
@@ -73,12 +76,12 @@ export const render = (movies: Array<Movie>) => {
 };
 
 
-export const movieRender = (movie: Array<Movie>) => {
+export const movieRender = (movie: Movie) => {
   return `
   <html>
   <body>
   <div>
-  <img src="${movie[0].poster_path}"/>
+  <img src="${movie.posterPath}"/>
   </div>
   </body>
   </html>
