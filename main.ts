@@ -3,7 +3,7 @@ import { render, movieRender } from "./renderr.js"; //renderr
 import { loadMovies } from "./moviess.js"; //moviess
 import { loadMovie, loadGenres } from "./moviee.js" //moviee 
 
-const movies = await loadMovies(6);
+const movies = await loadMovies(3);
 const html = render(movies);
 await writeFile('movies.html', html);
 

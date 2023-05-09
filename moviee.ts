@@ -65,9 +65,9 @@ export class Genres{
     for (const {id, name} of results.genres){
         genres.push(new Genres(id, name));
     };
-    for (const genre of genres){
-        console.log(genre.name);
-    }
+    // for (const genre of genres){
+    //     console.log(genre.name);
+    // }
     
     return genres;
   };
