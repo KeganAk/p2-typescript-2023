@@ -96,13 +96,13 @@ export const movieRender = (movie: Movie) => {
   <div class="releaseDate"><strong>Fecha de estreno</strong>: ${movie.release_date}</div>
 
   <div class="adult"><strong>Para adultos</strong>: ${movie.adult ? "Sí" : "No"}</div> 
-  <div class="homepage"><strong>Web oficial</strong>: ${movie.homepage}</div>
+  <div class="homepage"><strong>Web oficial</strong>: <a href="${movie.homepage}">${movie.homepage}</a></div>
   
   <div class="popularity"><strong>Popularidad</strong>: ${movie.popularity}</div>
   
   <div class="revenue"><strong>Ganancias</strong>: ${movie.revenue}$</div>
   <div class="runtime"><strong>Duración</strong>: ${movie.runtime} minutos</div>
-  <div class="status"><strong>Estado:</strong> ${movie.status}</div>
+  <div class="status"><strong>Estado</strong>: ${movie.status}</div>
   
   <div class="voteAverage"><strong>Nota</strong>: ${movie.vote_average}</div>
   <div class="voteCount"><strong>Votos</strong>: ${movie.vote_count}</div>
